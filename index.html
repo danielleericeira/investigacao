@@ -1,26 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-  <title>Investigação IC</title>
+    <meta charset="UTF-8">
+    <title>Investigação IC - Arquivologia</title>
+    <style>
+        body {
+            background-color: #1a1a1a; /* Fundo grafite escuro */
+            color: #e0e0e0; /* Letras claras */
+            font-family: 'Courier New', Courier, monospace; /* Fonte de máquina de escrever */
+            padding: 50px;
+        }
+        h1 {
+            color: #00ff41; /* Verde "Matrix/Terminal" */
+            border-bottom: 2px solid #00ff41;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        .mural {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .evidencia {
+            background-color: #2d2d2d;
+            border: 2px solid #444;
+            border-left: 5px solid #ff4b2b; /* Linha vermelha de "alerta" */
+            padding: 20px;
+            width: 250px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+        }
+        .evidencia:hover {
+            transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+            border-color: #00ff41;
+        }
+        h3 { color: #ff4b2b; margin-top: 0; }
+        p { font-size: 0.9em; line-height: 1.6; }
+    </style>
 </head>
 <body>
 
-<h1>🕵️ Investigação da Informação</h1>
+    <h1>🕵️ MURAL DE INVESTIGAÇÃO DA INFORMAÇÃO</h1>
+    <p style="text-align: center;">Projeto de IC - Danielle Ericeira</p>
 
-<div>
-  <h3>📄 Evidência</h3>
-  <p>Artigo sobre organização da informação</p>
-</div>
+    <div class="mural">
+        <div class="evidencia">
+            <h3>📄 EVIDÊNCIA 01</h3>
+            <p><strong>Status:</strong> Coletada</p>
+            <p>Artigo científico sobre organização e métodos na Arquivologia moderna.</p>
+        </div>
 
-<div>
-  <h3>💡 Ideia</h3>
-  <p>Pesquisa como investigação</p>
-</div>
+        <div class="evidencia">
+            <h3>💡 INSIGHT</h3>
+            <p><strong>Status:</strong> Em análise</p>
+            <p>A pesquisa acadêmica funciona como uma busca por pistas em um mar de dados.</p>
+        </div>
 
-<div>
-  <h3>❓ Dúvida</h3>
-  <p>Como representar conexões?</p>
-</div>
+        <div class="evidencia">
+            <h3>❓ DÚVIDA</h3>
+            <p><strong>Status:</strong> Pendente</p>
+            <p>Como conectar fontes de diferentes épocas de forma visual e lógica?</p>
+        </div>
+    </div>
 
 </body>
 </html>
