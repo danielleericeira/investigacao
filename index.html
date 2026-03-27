@@ -2,68 +2,112 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Investigação IC - Arquivologia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Investigação IC - Arquivologia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --text-main: #f1f5f9;
+            --danger: #ef4444;
+        }
         body {
-            background-color: #1a1a1a; /* Fundo grafite escuro */
-            color: #e0e0e0; /* Letras claras */
-            font-family: 'Courier New', Courier, monospace; /* Fonte de máquina de escrever */
-            padding: 50px;
-        }
-        h1 {
-            color: #00ff41; /* Verde "Matrix/Terminal" */
-            border-bottom: 2px solid #00ff41;
-            padding-bottom: 10px;
-            text-align: center;
-        }
-        .mural {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
             display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 30px;
+            min-height: 100vh;
         }
-        .evidencia {
-            background-color: #2d2d2d;
-            border: 2px solid #444;
-            border-left: 5px solid #ff4b2b; /* Linha vermelha de "alerta" */
-            padding: 20px;
+        /* Menu Lateral */
+        nav {
             width: 250px;
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
-            transition: transform 0.3s;
+            background-color: #020617;
+            padding: 20px;
+            border-right: 1px solid #334155;
         }
-        .evidencia:hover {
-            transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
-            border-color: #00ff41;
+        nav h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 30px; }
+        nav a { display: block; color: #94a3b8; text-decoration: none; padding: 12px; margin-bottom: 5px; border-radius: 8px; transition: 0.3s; }
+        nav a:hover { background: #1e293b; color: white; }
+        nav a.active { background: var(--accent); color: #020617; font-weight: bold; }
+
+        /* Conteúdo Principal */
+        main { flex-grow: 1; padding: 40px; }
+        header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 20px; margin-bottom: 30px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+
+        /* Cartão de Evidência */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #334155;
+            position: relative;
+            overflow: hidden;
         }
-        h3 { color: #ff4b2b; margin-top: 0; }
-        p { font-size: 0.9em; line-height: 1.6; }
+        .card::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent); }
+        .card h3 { margin: 0 0 10px 0; display: flex; align-items: center; gap: 10px; color: var(--accent); }
+        .meta { font-size: 0.8rem; color: #94a3b8; margin-bottom: 15px; display: flex; gap: 10px; }
+        .tag { background: #0ea5e933; color: #38bdf8; padding: 2px 8px; border-radius: 4px; border: 1px solid #38bdf844; }
+        
+        p { line-height: 1.6; color: #cbd5e1; }
+        .btn { background: #334155; color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-size: 0.8rem; }
+        .btn:hover { background: #475569; }
     </style>
 </head>
 <body>
 
-    <h1>🕵️ MURAL DE INVESTIGAÇÃO DA INFORMAÇÃO</h1>
-    <p style="text-align: center;">Projeto de IC - Danielle Ericeira</p>
+    <nav>
+        <h2><i class="fas fa-microscope"></i> IC INVESTIGAÇÃO</h2>
+        <a href="#" class="active"><i class="fas fa-folder-open"></i> Repositório</a>
+        <a href="#"><i class="fas fa-project-diagram"></i> Conexões</a>
+        <a href="#"><i class="fas fa-history"></i> Cronologia</a>
+        <a href="#"><i class="fas fa-cog"></i> Configurações</a>
+    </nav>
 
-    <div class="mural">
-        <div class="evidencia">
-            <h3>📄 EVIDÊNCIA 01</h3>
-            <p><strong>Status:</strong> Coletada</p>
-            <p>Artigo científico sobre organização e métodos na Arquivologia moderna.</p>
-        </div>
+    <main>
+        <header>
+            <div>
+                <h1>Painel de Evidências</h1>
+                <p>Monitoramento de fontes e organização documental.</p>
+            </div>
+            <button class="btn" onclick="alert('Funcionalidade em desenvolvimento!')">+ Nova Evidência</button>
+        </header>
 
-        <div class="evidencia">
-            <h3>💡 INSIGHT</h3>
-            <p><strong>Status:</strong> Em análise</p>
-            <p>A pesquisa acadêmica funciona como uma busca por pistas em um mar de dados.</p>
-        </div>
+        <div class="grid">
+            <div class="card">
+                <h3><i class="fas fa-file-alt"></i> Artigo Base</h3>
+                <div class="meta">
+                    <span class="tag">PDF</span>
+                    <span><i class="far fa-calendar"></i> 26/03/2026</span>
+                </div>
+                <p>Análise sobre a diplomática contemporânea e a preservação de documentos digitais em nuvem.</p>
+                <button class="btn">Abrir Arquivo</button>
+            </div>
 
-        <div class="evidencia">
-            <h3>❓ DÚVIDA</h3>
-            <p><strong>Status:</strong> Pendente</p>
-            <p>Como conectar fontes de diferentes épocas de forma visual e lógica?</p>
+            <div class="card" style="border-left: 1px solid var(--danger);">
+                <h3 style="color: var(--danger);"><i class="fas fa-lightbulb"></i> Hipótese de IC</h3>
+                <div class="meta">
+                    <span class="tag" style="background: #ef444422; color: #ef4444; border-color: #ef444444;">TEORIA</span>
+                    <span><i class="far fa-clock"></i> Prioridade Alta</span>
+                </div>
+                <p>Como a estrutura do GitHub pode ser utilizada como um plano de classificação para pesquisadores iniciantes?</p>
+                <button class="btn">Expandir Ideia</button>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-search"></i> Próxima Busca</h3>
+                <div class="meta">
+                    <span class="tag">TAREFA</span>
+                </div>
+                <p>Localizar bibliografia sobre a relação entre Inteligência Artificial e a descrição arquivística.</p>
+                <button class="btn">Marcar como Feito</button>
+            </div>
         </div>
-    </div>
+    </main>
 
 </body>
 </html>
