@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SISTEMA DE INVESTIGAÇÃO ARQUIVÍSTICA - IC</title>
+    <style>
+        /* Estética "Cyber-Investigação" */
+        body {
+            background-color: #0a0a0a;
+            color: #00ff41; /* Verde clássico de terminal */
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 20px;
+            border: 2px solid #00ff41;
+            box-shadow: inset 0 0 15px #00ff41;
+            min-height: 94vh;
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid #00ff41;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            background: #003300;
+            padding: 5px 10px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+        }
+
+        /* Formulário de Input (Protocolo de Evidência) */
+        .input-panel {
+            border: 1px solid #00ff41;
+            padding: 15px;
+            background: rgba(0, 50, 0, 0.2);
+        }
+
+        h2 { font-size: 1.2rem; text-transform: uppercase; }
+
+        label { display: block; margin-top: 10px; }
+
+        input, textarea, select {
+            width: 100%;
+            background: #000;
+            border: 1px solid #00ff41;
+            color: #00ff41;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 15px;
+            background: #00ff41;
+            color: #000;
+            border: none;
+            padding: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            background: #008f11;
+        }
+
+        /* Mural de Evidências (Dashboard) */
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .card {
+            border: 1px solid #00ff41;
+            padding: 15px;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "CONFIDENCIAL";
+            position: absolute;
+            top: 5px;
+            right: -20px;
+            background: #ff0000;
+            color: #fff;
+            font-size: 0.6rem;
+            padding: 2px 20px;
+            transform: rotate(45deg);
+        }
+
+        .card h3 { margin-top: 0; color: #fff; border-bottom: 1px solid #00ff41; }
+        .card p { font-size: 0.9rem; line-height: 1.4; }
+        .meta { font-size: 0.7rem; color: #888; }
+
+        /* Efeito de scanline (opcional, para estilo) */
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(0, 255, 65, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            animation: scan 4s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="scanline"></div>
+
+    <header>
+        <h1>SYSTEM_ARCH_INVESTIGATION v2.0</h1>
+        <p>Projeto de Iniciação Científica | Investigadora: Danielle (UNIRIO)</p>
+    </header>
+
+    <div class="status-bar">
+        <span>STATUS: CONECTADO</span>
+        <span>ACESSO: NÍVEL 4 (ARQUIVOLOGIA)</span>
+        <span>LOCAL: RIO DE JANEIRO, BR</span>
+    </div>
+
+    <div class="container">
+        <div class="input-panel">
+            <h2>[+] Protocolar Evidência</h2>
+            <form>
+                <label>Título da Fonte:</label>
+                <input type="text" placeholder="Ex: Documento de Arquivo X">
+                
+                <label>Classificação:</label>
+                <select>
+                    <option>Documento Digital</option>
+                    <option>Depoimento</option>
+                    <option>Metadados Extraídos</option>
+                    <option>Outros</option>
+                </select>
+
+                <label>Descrição/Insight:</label>
+                <textarea rows="4" placeholder="Descreva os pontos de interesse..."></textarea>
+
+                <button type="button">Submeter ao Acervo</button>
+            </form>
+        </div>
+
+        <div class="evidence-grid">
+            <div class="card">
+                <div class="meta">REF: IC-001</div>
+                <h3>Fragmento de Dados #1</h3>
+                <p>Análise preliminar indica inconsistência na proveniência digital dos arquivos do setor X.</p>
+                <div class="meta">Status: Sob Investigação</div>
+            </div>
+
+            <div class="card">
+                <div class="meta">REF: IC-002</div>
+                <h3>Log de Acesso</h3>
+                <p>Acesso não autorizado detectado às 03:14 AM. Verificar cadeia de custódia.</p>
+                <div class="meta">Status: Prioridade Alta</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
